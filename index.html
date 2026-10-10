@@ -96,6 +96,13 @@ section { padding-block: clamp(3.5rem, 8vw, 7rem); }
 .meta a:hover { color: var(--ink); }
 @media (max-width: 800px) { .cards { grid-template-columns: 1fr; } .cards .card:nth-child(even) { margin-top: 0; } }
 
+/* Client feedback */
+.feedback { background: var(--bg); }
+.video-wrap { max-width: 56rem; margin: 0 auto; }
+.video-frame { position: relative; border-radius: clamp(18px, 2.5vw, 28px); overflow: hidden; background: var(--bg-2); box-shadow: 0 30px 60px -28px rgba(0,0,0,.7); border: 1px solid var(--line); }
+.video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0d0820; }
+.video-note { margin: 1.1rem 0 0; color: var(--muted); text-align: center; max-width: 36em; margin-inline: auto; }
+
 /* Profile image */
 .who { display: flex; align-items: center; gap: 1.1rem; }
 .avatar { flex: none; width: 4rem; height: 4rem; border-radius: 50%; overflow: hidden; border: 2px solid var(--sun); background: linear-gradient(150deg, var(--magenta), var(--lilac)); display: grid; place-items: center; font-weight: 600; letter-spacing: -0.04em; color: var(--ink); }
@@ -155,6 +162,7 @@ footer { padding-block: 1.75rem 1.25rem; color: var(--muted); font-size: 0.9rem;
     <a class="mark" href="#top">Kailash Mishra</a>
     <nav class="nav" aria-label="Main">
       <a href="#work">Work</a>
+      <a class="opt" href="#feedback">Feedback</a>
       <a href="#about">About</a>
       <a class="opt" href="#experience">Experience</a>
       <a class="pill" href="#contact">Let's talk</a>
@@ -191,6 +199,29 @@ footer { padding-block: 1.75rem 1.25rem; color: var(--muted); font-size: 0.9rem;
         </div>
       </div>
       <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <section class="feedback" id="feedback" aria-labelledby="feedback-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="feedback-h">Client feedback</h2>
+        <p>A short note from a client about working together.</p>
+      </div>
+      <div class="video-wrap">
+        <div class="video-frame">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Client feedback video"
+          >
+            <source src="./client-feedback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="video-note">Hear directly from a client about delivery, communication, and results.</p>
+      </div>
     </div>
   </section>
 
