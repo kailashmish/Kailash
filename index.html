@@ -150,8 +150,6 @@ const PROJECTS = [
     summary: "AI + human chat across WhatsApp, SMS, Email, and Messenger. Turns customer conversations into conversions for merchants.",
     result: "Multi-tenant SaaS: WebSockets, Stripe billing, agents, and analytics.",
     image: "./projects/ezer.jpg",
-    url: "https://www.ezercommerce.com/wp-content/uploads/2026/04/Ezer-Engage-Ai-Deck-PDF.pdf",
-    linkLabel: "View product deck",
     bg: `linear-gradient(150deg, ${C.c}, ${C.l})` }
 ];
 
@@ -194,7 +192,7 @@ PROJECTS.forEach((p, i) => {
       <span class="tag"><i class="dot" style="--c:${p.dot}"></i>${p.kind}</span>
       <p>${p.summary}</p>
       <p class="res"><b>${p.result}</b></p>
-      <a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.linkLabel || "View project"}</a>
+      ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.linkLabel || "View project"}</a>` : ""}
     </div>`;
   cards.appendChild(el);
   el.addEventListener("pointermove", e => {
