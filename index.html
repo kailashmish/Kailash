@@ -127,6 +127,15 @@ section { padding-block: clamp(3.5rem, 8vw, 7rem); }
 .caps li { padding: 0.35rem 0; border-bottom: 1px solid var(--line); color: var(--muted); }
 @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } .portrait { max-width: 20rem; margin-left: 0.75rem; } }
 
+/* Services */
+.services { background: var(--bg); }
+.service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem clamp(1.25rem, 3vw, 2rem); }
+.service-card { border: 1px solid var(--line); border-radius: 22px; padding: 1.35rem 1.4rem 1.5rem; background: rgba(255,244,230,0.03); transition: border-color .2s, transform .2s, background .2s; }
+.service-card:hover { border-color: rgba(56,225,255,0.45); background: rgba(255,244,230,0.06); transform: translateY(-2px); }
+.service-card h3 { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 0.65rem; font-family: var(--display); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em; }
+.service-card p { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.5; }
+@media (max-width: 800px) { .service-grid { grid-template-columns: 1fr; } }
+
 /* Experience */
 .timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .timeline li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 0.5rem 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
@@ -164,6 +173,7 @@ footer { padding-block: 1.75rem 1.25rem; color: var(--muted); font-size: 0.9rem;
       <a href="#work">Work</a>
       <a class="opt" href="#feedback">Feedback</a>
       <a href="#about">About</a>
+      <a class="opt" href="#services">Services</a>
       <a class="opt" href="#experience">Experience</a>
       <a class="pill" href="#contact">Let's talk</a>
     </nav>
@@ -235,9 +245,9 @@ footer { padding-block: 1.75rem 1.25rem; color: var(--muted); font-size: 0.9rem;
           <span class="ps ring"></span><span class="ps sun"></span>
         </div>
         <div class="about-body">
-          <p class="lead">I own products from schema to shipping, so architecture, APIs, and UI stay in sync.</p>
-          <p>Full-stack architect with 8+ years delivering enterprise SaaS, AI platforms, e-commerce, and mobile apps. Adobe Commerce Certified. Proven track record on multi-tenant systems, real-time messaging, and payment ecosystems.</p>
-          <p>I like small teams, clear constraints, and shipping systems people rely on every day.</p>
+          <p class="lead">Need an experienced developer to build, improve, or integrate your eCommerce platform, SaaS product, LMS, or mobile app?</p>
+          <p>I am a Top Rated full-stack developer and Magento 2 Certified Developer with 8+ years delivering production-ready web, mobile, eCommerce, EdTech, and AI-powered solutions.</p>
+          <p>I help clients turn complex requirements into secure, scalable, and maintainable products, from initial architecture and development to integrations, deployment, and ongoing support.</p>
           <div class="caps">
             <div>
               <h3><i class="dot" style="--c:var(--magenta)"></i>Product</h3>
@@ -249,6 +259,49 @@ footer { padding-block: 1.75rem 1.25rem; color: var(--muted); font-size: 0.9rem;
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="services-h">What I can help with</h2>
+        <p>Architecture, development, integrations, deployment, and ongoing support across the stack.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--magenta)"></i>Magento 2 / Adobe Commerce</h3>
+          <p>Custom modules, Hyvä themes, APIs, upgrades, performance optimization, catalogues, checkout, payments, and ERP/PIM integrations.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--cyan)"></i>WordPress & WooCommerce</h3>
+          <p>Custom themes, plugins, eCommerce functionality, API integrations, security hardening, and performance improvements.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--sun)"></i>React Native & Expo</h3>
+          <p>Cross-platform iOS and Android apps, subscriptions, notifications, authentication, analytics, and app-store releases.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--lilac)"></i>Moodle & EdTech</h3>
+          <p>Custom plugins, course workflows, certificates, enrolment, assessments, reporting, and third-party integrations.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--magenta)"></i>SaaS Development</h3>
+          <p>Subscription platforms, multi-tenant systems, admin dashboards, Stripe, Supabase, Firebase, PostgreSQL, and role-based access.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--cyan)"></i>AI & Automation</h3>
+          <p>OpenAI integrations, AI assistants, chatbots, RAG, vector search, prompt workflows, and business-process automation.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--sun)"></i>Full-Stack Development</h3>
+          <p>Laravel, PHP, Node.js, NestJS, React, Next.js, Vue.js, TypeScript, REST APIs, GraphQL, MySQL, and MongoDB.</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="dot" style="--c:var(--lilac)"></i>DevOps & Deployment</h3>
+          <p>AWS, Google Cloud, Docker, CI/CD, Linux servers, monitoring, and production deployment.</p>
+        </article>
       </div>
     </div>
   </section>
