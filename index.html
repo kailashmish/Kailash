@@ -118,26 +118,41 @@
 /* shapes: [type, color, x, y, size, depth(px), rotation(deg)] */
 const C = { m: "#FF4FA3", c: "#38E1FF", s: "#FFD23F", l: "#A58BFF", p: "#170F2E", i: "#FFF4E6" };
 const PROJECTS = [
-  { name: "Meezi", kind: "AI travel app, CTO", dot: C.m,
-    summary: "A React Native / Expo trip planner with Supabase auth, RLS, OpenAI + LangChain itineraries, and Google Places — API keys kept server-side.",
-    result: "Production AI itineraries with secure user-scoped trips",
+  { name: "Bestee", kind: "Social discovery, mobile", dot: C.m,
+    summary: "Social discovery passport for meeting people worldwide — real-time profile grids, smart filters, events, messaging, and Bestee+ subscriptions on iOS and Android.",
+    result: "Live on Google Play as Bestee: Meet New People",
+    url: "https://play.google.com/store/apps/details?id=com.prod.besteeapp&hl=en",
+    linkLabel: "View on Google Play",
     bg: `linear-gradient(150deg, ${C.m}, ${C.l})`,
     shapes: [["circle", C.i, "56%", "10%", "44%", 80, 0], ["ring", C.c, "8%", "46%", "38%", 40, 0], ["square", C.s, "42%", "58%", "24%", 110, 18]] },
-  { name: "Ezer SaaS", kind: "Multi-tenant AI platform", dot: C.c,
-    summary: "Multi-channel AI chat over WhatsApp, SMS, Email, and Messenger — schema, WebSockets, Stripe billing, React 19, and React Native.",
-    result: "99.9% message delivery at production volume",
+  { name: "Meezi", kind: "AI travel app, CTO", dot: C.c,
+    summary: "One app for the whole trip — AI day-by-day itineraries, live navigation, and explore recommendations built around style, budget, and verified locations.",
+    result: "In beta on iOS and Android — themeezi.com",
+    url: "https://themeezi.com/en",
+    linkLabel: "Visit Meezi",
     bg: C.c,
     shapes: [["square", C.p, "10%", "14%", "36%", 50, -12], ["circle", C.s, "50%", "38%", "40%", 100, 0], ["ring", C.m, "62%", "6%", "26%", 30, 0]] },
   { name: "Rocaro", kind: "Marketplace, mobile", dot: C.s,
-    summary: "Buyer, seller, and designer apps with real-time chat and vendor dashboards for hundreds of active vendors.",
-    result: "Thousands of monthly orders across the marketplace",
+    summary: "Buyer, seller, and designer mobile apps with real-time chat and vendor dashboards for multi-vendor marketplace commerce.",
+    result: "Live on the App Store",
+    url: "https://apps.apple.com/in/app/rocaro/id6754096438",
+    linkLabel: "View on App Store",
     bg: C.s,
     shapes: [["ring", C.p, "18%", "12%", "54%", 60, 0], ["circle", C.m, "54%", "46%", "34%", 110, 0], ["square", C.l, "8%", "58%", "26%", 30, 14]] },
-  { name: "Moodle LMS", kind: "Enterprise learning platform", dot: C.c,
-    summary: "Custom plugins, SCORM/xAPI delivery, certificate engine, SAML2 SSO, and branded Boost themes for institutions.",
-    result: "Thousands of learners across hundreds of courses",
+  { name: "CertaPathID", kind: "Higher-ed identity verification", dot: C.l,
+    summary: "Identity verification for college applicants — PASS, REVIEW, or FAIL results that cut application fraud without replacing the existing SIS.",
+    result: "$1.50 per verification · free integration",
+    url: "https://certapathid.com/home",
+    linkLabel: "Visit CertaPathID",
     bg: `linear-gradient(150deg, #3A2478, #21154A)`,
-    shapes: [["bar", C.c, "10%", "20%", "62%", 40, 0], ["bar", C.m, "26%", "44%", "56%", 80, 0], ["bar", C.s, "14%", "68%", "42%", 115, 0]] }
+    shapes: [["bar", C.c, "10%", "20%", "62%", 40, 0], ["bar", C.m, "26%", "44%", "56%", 80, 0], ["bar", C.s, "14%", "68%", "42%", 115, 0]] },
+  { name: "Ezer Engage", kind: "AI omnichannel commerce", dot: C.c,
+    summary: "AI + human-enhanced omnichannel chat for WhatsApp, SMS, Email, and Messenger — converting conversations into sales with real-time business intelligence.",
+    result: "Multi-tenant SaaS with Stripe billing and agent tooling",
+    url: "https://www.ezercommerce.com/wp-content/uploads/2026/04/Ezer-Engage-Ai-Deck-PDF.pdf",
+    linkLabel: "View product deck",
+    bg: `linear-gradient(150deg, ${C.c}, ${C.l})`,
+    shapes: [["circle", C.s, "58%", "12%", "36%", 90, 0], ["square", C.m, "12%", "48%", "30%", 55, -10], ["ring", C.i, "40%", "52%", "28%", 120, 0]] }
 ];
 
 /* ---------- Profile image ----------
@@ -177,7 +192,7 @@ PROJECTS.forEach((p, i) => {
       <span class="tag"><i class="dot" style="--c:${p.dot}"></i>${p.kind}</span>
       <p>${p.summary}</p>
       <p class="res"><b>${p.result}</b></p>
-      <a href="#contact">Discuss this project</a>
+      <a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.linkLabel || "View project"}</a>
     </div>`;
   cards.appendChild(el);
   el.addEventListener("pointermove", e => {
