@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KM">
-  <rect width="64" height="64" rx="14" fill="#170F2E"/>
+  <rect width="64" height="64" rx="14" fill="#0D0A1F"/>
   <rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="#FF4FA3" stroke-width="3"/>
   <text x="32" y="43" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="26" font-weight="700" fill="#FFD23F" letter-spacing="-1">KM</text>
 </svg>
