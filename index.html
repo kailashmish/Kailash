@@ -77,15 +77,12 @@ section { padding-block: clamp(3.5rem, 8vw, 7rem); }
 .card { --rx: 0deg; --ry: 0deg; transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry)); transform-style: preserve-3d; transition: transform .35s ease-out; }
 .card.live { transition: transform .08s linear; }
 .art { position: relative; aspect-ratio: 5 / 4; transform-style: preserve-3d; }
-.art .bg { position: absolute; inset: 0; border-radius: 22px; background: var(--bgc); box-shadow: 0 30px 60px -28px rgba(0,0,0,.7); }
+.art .bg { position: absolute; inset: 0; border-radius: 22px; background: var(--bgc); box-shadow: 0 30px 60px -28px rgba(0,0,0,.7); overflow: hidden; }
+.art .bg img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); }
+.art .shade { position: absolute; inset: 0; border-radius: 22px; background: linear-gradient(180deg, transparent 45%, rgba(23,15,46,.55) 100%); pointer-events: none; transform: translateZ(1px); }
 .art .glare { position: absolute; inset: 0; border-radius: 22px; background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,.28), transparent 55%); opacity: 0; transition: opacity .3s; pointer-events: none; transform: translateZ(2px); }
 .card.live .glare { opacity: 1; }
 .art .init { position: absolute; left: 6%; bottom: -4%; font-family: var(--display); font-weight: 600; font-size: clamp(8rem, 16vw, 15rem); line-height: 1; letter-spacing: -0.06em; color: rgba(255,244,230,.16); transform: translateZ(14px); user-select: none; }
-.sh { position: absolute; left: var(--x); top: var(--y); width: var(--s); aspect-ratio: 1; transform: translateZ(var(--z)) rotate(var(--r, 0deg)); background: var(--c); box-shadow: 0 22px 30px -14px rgba(0,0,0,.45); }
-.sh.circle { border-radius: 50%; }
-.sh.square { border-radius: 20%; }
-.sh.ring { border-radius: 50%; background: none; border: calc(var(--s) * 0 + 1.6rem) solid var(--c); box-shadow: 0 22px 30px -14px rgba(0,0,0,.45), inset 0 14px 18px -12px rgba(0,0,0,.35); }
-.sh.bar { aspect-ratio: auto; height: 15%; border-radius: 999px; }
 .meta { padding: 1.4rem 0.25rem 0; transform: translateZ(30px); }
 .meta h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 3.2vw, 2.8rem); letter-spacing: -0.045em; line-height: 1; }
 .tag { margin-top: 0.7rem; color: var(--muted); font-size: 0.95rem; }
@@ -255,41 +252,41 @@ footer { padding-block: 1.75rem 1.25rem; color: var(--muted); font-size: 0.9rem;
 /* shapes: [type, color, x, y, size, depth(px), rotation(deg)] */
 const C = { m: "#FF4FA3", c: "#38E1FF", s: "#FFD23F", l: "#A58BFF", p: "#170F2E", i: "#FFF4E6" };
 const PROJECTS = [
-  { name: "Bestee", kind: "Social discovery, mobile", dot: C.m,
-    summary: "Social discovery passport for meeting people worldwide — real-time profile grids, smart filters, events, messaging, and Bestee+ subscriptions on iOS and Android.",
-    result: "Live on Google Play as Bestee: Meet New People",
+  { name: "Bestee", kind: "Social discovery · iOS & Android", dot: C.m,
+    summary: "A social discovery app for meeting people worldwide. Real-time profile grids, smart vibe filters, events, messaging, and Bestee+ subscriptions.",
+    result: "Built end-to-end: React Native app, Laravel API, realtime sockets, and payments.",
+    image: "./projects/bestee.jpg",
     url: "https://play.google.com/store/apps/details?id=com.prod.besteeapp&hl=en",
     linkLabel: "View on Google Play",
-    bg: `linear-gradient(150deg, ${C.m}, ${C.l})`,
-    shapes: [["circle", C.i, "56%", "10%", "44%", 80, 0], ["ring", C.c, "8%", "46%", "38%", 40, 0], ["square", C.s, "42%", "58%", "24%", 110, 18]] },
-  { name: "Meezi", kind: "AI travel app, CTO", dot: C.c,
-    summary: "One app for the whole trip — AI day-by-day itineraries, live navigation, and explore recommendations built around style, budget, and verified locations.",
-    result: "In beta on iOS and Android — themeezi.com",
+    bg: `linear-gradient(150deg, ${C.m}, ${C.l})` },
+  { name: "Meezi", kind: "AI travel · CTO", dot: C.c,
+    summary: "One app for the whole trip. AI builds day-by-day itineraries, then helps with navigation and nearby discovery as you travel.",
+    result: "React Native + Supabase + OpenAI/LangChain. Currently in beta.",
+    image: "./projects/meezi.jpg",
     url: "https://themeezi.com/en",
     linkLabel: "Visit Meezi",
-    bg: C.c,
-    shapes: [["square", C.p, "10%", "14%", "36%", 50, -12], ["circle", C.s, "50%", "38%", "40%", 100, 0], ["ring", C.m, "62%", "6%", "26%", 30, 0]] },
-  { name: "Rocaro", kind: "Marketplace, mobile", dot: C.s,
-    summary: "Buyer, seller, and designer mobile apps with real-time chat and vendor dashboards for multi-vendor marketplace commerce.",
-    result: "Live on the App Store",
+    bg: C.c },
+  { name: "Rocaro", kind: "Marketplace · mobile", dot: C.s,
+    summary: "Multi-vendor marketplace apps for buyers, sellers, and designers — with chat, vendor dashboards, and order flow.",
+    result: "Laravel backend + React Native clients. Live on the App Store.",
+    image: "./projects/rocaro.jpg",
     url: "https://apps.apple.com/in/app/rocaro/id6754096438",
     linkLabel: "View on App Store",
-    bg: C.s,
-    shapes: [["ring", C.p, "18%", "12%", "54%", 60, 0], ["circle", C.m, "54%", "46%", "34%", 110, 0], ["square", C.l, "8%", "58%", "26%", 30, 14]] },
-  { name: "CertaPathID", kind: "Higher-ed identity verification", dot: C.l,
-    summary: "Identity verification for college applicants — PASS, REVIEW, or FAIL results that cut application fraud without replacing the existing SIS.",
-    result: "$1.50 per verification · free integration",
+    bg: C.s },
+  { name: "CertaPathID", kind: "Higher-ed identity · SaaS", dot: C.l,
+    summary: "Verifies university applicants before admissions work piles up. Staff get a clear PASS, REVIEW, or FAIL result.",
+    result: "Fraud checks at $1.50/verification with free SIS integration.",
+    image: "./projects/certapathid.jpg",
     url: "https://certapathid.com/home",
     linkLabel: "Visit CertaPathID",
-    bg: `linear-gradient(150deg, #3A2478, #21154A)`,
-    shapes: [["bar", C.c, "10%", "20%", "62%", 40, 0], ["bar", C.m, "26%", "44%", "56%", 80, 0], ["bar", C.s, "14%", "68%", "42%", 115, 0]] },
+    bg: `linear-gradient(150deg, #3A2478, #21154A)` },
   { name: "Ezer Engage", kind: "AI omnichannel commerce", dot: C.c,
-    summary: "AI + human-enhanced omnichannel chat for WhatsApp, SMS, Email, and Messenger — converting conversations into sales with real-time business intelligence.",
-    result: "Multi-tenant SaaS with Stripe billing and agent tooling",
+    summary: "AI + human chat across WhatsApp, SMS, Email, and Messenger. Turns customer conversations into conversions for merchants.",
+    result: "Multi-tenant SaaS: WebSockets, Stripe billing, agents, and analytics.",
+    image: "./projects/ezer.jpg",
     url: "https://www.ezercommerce.com/wp-content/uploads/2026/04/Ezer-Engage-Ai-Deck-PDF.pdf",
     linkLabel: "View product deck",
-    bg: `linear-gradient(150deg, ${C.c}, ${C.l})`,
-    shapes: [["circle", C.s, "58%", "12%", "36%", 90, 0], ["square", C.m, "12%", "48%", "30%", 55, -10], ["ring", C.i, "40%", "52%", "28%", 120, 0]] }
+    bg: `linear-gradient(150deg, ${C.c}, ${C.l})` }
 ];
 
 /* ---------- Profile image ----------
@@ -318,10 +315,12 @@ PROJECTS.forEach((p, i) => {
   const el = document.createElement("article");
   el.className = "card";
   el.innerHTML = `
-    <div class="art" role="img" aria-label="Layered abstract artwork for ${p.name}">
-      <div class="bg" style="--bgc:${p.bg}"></div>
+    <div class="art" role="img" aria-label="Preview of ${p.name}">
+      <div class="bg" style="--bgc:${p.bg}">
+        <img src="${p.image}" alt="${p.name} project preview" loading="lazy" />
+      </div>
+      <div class="shade"></div>
       <span class="init">${p.name[0]}</span>
-      ${p.shapes.map(s => `<span class="sh ${s[0]}" style="--c:${s[1]};--x:${s[2]};--y:${s[3]};--s:${s[4]};--z:${s[5]}px;--r:${s[6]}deg"></span>`).join("")}
       <div class="glare"></div>
     </div>
     <div class="meta">
